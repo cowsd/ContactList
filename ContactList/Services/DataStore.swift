@@ -5,9 +5,7 @@
 //  Created by Alex Pesenka on 13/07/24.
 //
 
-import Foundation
-
-final class Datastore {
+final class DataStore {
      let firstNames = [
         "James",
         "Emily",
