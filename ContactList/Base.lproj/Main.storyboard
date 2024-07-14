@@ -18,14 +18,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personCell" textLabel="5jl-b6-9Oc" style="IBUITableViewCellStyleDefault" id="61p-qH-xJM">
-                                <rect key="frame" x="0.0" y="50" width="393" height="55.666667938232422"/>
+                                <rect key="frame" x="0.0" y="50" width="393" height="59.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="61p-qH-xJM" id="e41-My-wsd">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="55.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="59.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5jl-b6-9Oc">
-                                            <rect key="frame" x="20" y="0.0" width="353" height="55.666667938232422"/>
+                                            <rect key="frame" x="20" y="0.0" width="353" height="59.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <nil key="textColor"/>
@@ -106,6 +106,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2fh-9O-cwh"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="KXY-GH-7mZ" id="n0j-64-aJI"/>
+                        <outlet property="phoneNumberLabel" destination="V28-qb-lIK" id="uf9-kM-eno"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zIa-YF-ZZH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

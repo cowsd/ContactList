@@ -9,19 +9,20 @@ import UIKit
 
 final class SimpleListViewController: UITableViewController {
     
-    let persons = Person.generateRandomPersons()
+    private let persons = Person.generateRandomPersons()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(persons.count)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        let detailsVC = segue.destination as? PersonDetailsViewController
-        detailsVC?.person = persons[indexPath.row]
+        let personDetailsVC = segue.destination as? PersonDetailsViewController
+        personDetailsVC?.person = persons[indexPath.row]
     }
 }
+
+// MARK: - UITableViewDataSource
 
 extension SimpleListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

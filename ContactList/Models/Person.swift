@@ -17,7 +17,7 @@ struct Person {
     
     static func generateRandomPersons() -> [Person] {
         let datastore = DataStore()
-        var randomUsers: [Person] = []
+        var randomPersons: [Person] = []
         
         let firstNames = datastore.firstNames.shuffled()
         let lastNames = datastore.lastNames.shuffled()
@@ -27,11 +27,16 @@ struct Person {
         let minCount = min(firstNames.count, lastNames.count, emails.count, phoneNumbers.count)
         
         for index in 0..<minCount {
-            let user = Person(firstName: firstNames[index], lastName: lastNames[index], email: emails[index], phoneNumber: phoneNumbers[index])
-            randomUsers.append(user)
+            let person = Person(
+                firstName: firstNames[index],
+                lastName: lastNames[index],
+                email: emails[index],
+                phoneNumber: phoneNumbers[index]
+            )
+            randomPersons.append(person)
         }
         
-        return randomUsers
+        return randomPersons
     }
     
 }
