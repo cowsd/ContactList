@@ -9,16 +9,13 @@ import UIKit
 
 final class SimpleListViewController: UITableViewController {
     
-    private let persons = Person.generateRandomPersons()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    var persons: [Person]!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let personDetailsVC = segue.destination as? PersonDetailsViewController
         personDetailsVC?.person = persons[indexPath.row]
+        personDetailsVC?.hidesBottomBarWhenPushed = true
     }
 }
 
