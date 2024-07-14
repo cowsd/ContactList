@@ -34,6 +34,7 @@ extension SectionedListViewController {
         let person = persons[indexPath.section]
         
         var content = cell.defaultContentConfiguration()
+        content.textProperties.font = UIFont.systemFont(ofSize: 18)
         
         if indexPath.row == 0 {
             content.text = person.phoneNumber
