@@ -16,7 +16,7 @@ final class PersonDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = person.fullName
+        title = person.fullName
         phoneNumberLabel.text = person.phoneNumber
         emailLabel.text = person.email
     }
