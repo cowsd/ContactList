@@ -9,7 +9,6 @@ import UIKit
 
 final class TabBarViewController: UITabBarController {
     
-    private let persons = Person.generateRandomPersons()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,17 +18,11 @@ final class TabBarViewController: UITabBarController {
 
 // MARK: - Private Methods
     private func transferData() {
-        guard let viewControllers else { return }
+        guard let simpleListVC = viewControllers?.first as? SimpleListViewController else { return }
+        guard let sectionedVC = viewControllers?.last as? SectionedListViewController else { return }
         
-        viewControllers.forEach { viewController in
-            guard let navigationVC = viewController as? UINavigationController else { return }
-            
-            if let simpleListVC = navigationVC.topViewController as? SimpleListViewController {
-                simpleListVC.persons = persons
-            } else if let sectionedVC = navigationVC.topViewController as? SectionedListViewController {
-                sectionedVC.persons = persons
-            }
-        }
+        let persons = Person.generateRandomPersons()
+        simpleListVC.persons = persons
+        sectionedVC.persons = persons
     }
-    
 }

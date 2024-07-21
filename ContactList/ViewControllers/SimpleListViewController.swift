@@ -15,7 +15,6 @@ final class SimpleListViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let personDetailsVC = segue.destination as? PersonDetailsViewController
         personDetailsVC?.person = persons[indexPath.row]
-        personDetailsVC?.hidesBottomBarWhenPushed = true
     }
 }
 

@@ -22,11 +22,7 @@ extension SectionedListViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        persons[section].fullName
+        persons[section].rows.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,15 +30,12 @@ extension SectionedListViewController {
         let person = persons[indexPath.section]
         
         var content = cell.defaultContentConfiguration()
-        content.textProperties.font = UIFont.systemFont(ofSize: 18)
+        content.text = person.rows[indexPath.row]
         
-        if indexPath.row == 0 {
-            content.text = person.phoneNumber
-            content.image = UIImage(systemName: "phone")
-        } else {
-            content.text = person.email
-            content.image = UIImage(systemName: "envelope")
-        }
+        content.image = indexPath.row == 0
+        ? UIImage(systemName: "phone")
+        : UIImage(systemName: "envelope")
+        
         cell.contentConfiguration = content
         return cell
     }
@@ -54,5 +47,27 @@ extension SectionedListViewController {
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         false
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let contentView = UIView()
+        contentView.backgroundColor = .gray
+        
+        let fullNameLabel = UILabel(
+            frame: CGRect(
+                x: 16,
+                y: 3,
+                width: tableView.frame.width - 32,
+                height: 20
+            )
+        )
+        fullNameLabel.text = persons[section].fullName
+        fullNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        fullNameLabel.textColor = .white
+        
+        contentView.addSubview(fullNameLabel)
+        
+        return contentView
+    }
+    
 }
 

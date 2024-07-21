@@ -15,8 +15,12 @@ struct Person {
         "\(firstName) \(lastName)"
     }
     
+    var rows: [String] {
+        [phoneNumber, email]
+    }
+    
     static func generateRandomPersons() -> [Person] {
-        let datastore = DataStore()
+        let datastore = DataStore.shared
         var randomPersons: [Person] = []
         
         let firstNames = datastore.firstNames.shuffled()
